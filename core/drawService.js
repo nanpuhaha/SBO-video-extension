@@ -7,7 +7,7 @@ sboModule.drawService = (function () {
             ', and height: ' + flavor.height + ' and bitrate: ' + flavor.bitrate;
     };
 
-    let downloadHandler = function (flavor, videoUrl, index, title) {
+    let downloadHandler = function (flavor, videoUrl, index, title, course) {
         let http = new XMLHttpRequest();
         http.open('HEAD', videoUrl.replace(/^(.*)\/.*$/, '$1/' + flavor.id));
         http.onreadystatechange = function () {
@@ -16,7 +16,8 @@ sboModule.drawService = (function () {
                 chrome.runtime.sendMessage({
                     videoUrl: finalUrl,
                     index: index,
-                    title: title
+                    title: title,
+                    course: course
                 }, function (response) {
                 });
             }
@@ -25,7 +26,7 @@ sboModule.drawService = (function () {
     };
 
     return {
-        draw: function (domList, videoUrl, index, flavors) {
+        draw: function (domList, videoUrl, index, flavors, course) {
 
             let element = domList.get(index);
 
@@ -56,7 +57,7 @@ sboModule.drawService = (function () {
                 size += 1;
 
                 dldBtn.click(function () {
-                    downloadHandler(f, videoUrl, index, title);
+                    downloadHandler(f, videoUrl, index, title, course);
                 });
             });
         }

@@ -2,13 +2,13 @@ var sboModule = sboModule || {};
 
 sboModule.crawlerService = function () {
 
-    let getVideoForRefList = function (apiParams, domList) {
+    let getVideoForRefList = function (apiParams, domList, course) {
         apiParams.refList.forEach(function (e, i) {
-            getVideoForRefId(apiParams, domList, e, i);
+            getVideoForRefId(apiParams, domList, e, i, course);
         });
     };
 
-    let getVideoForRefId = function (apiParams, domList, referenceId, index) {
+    let getVideoForRefId = function (apiParams, domList, referenceId, index, course) {
         let url = 'https://cdnapisec.kaltura.com/html5/html5lib/v2.35/mwEmbedFrame.php?&wid=_' + apiParams.wid +
             '&uiconf_id=' + apiParams.uiconfId + '&flashvars[referenceId]=' + referenceId + '&callback=o';
 
@@ -17,7 +17,7 @@ sboModule.crawlerService = function () {
             let to = o.responseText.indexOf('",', frm);
             let url = o.responseText.substring(frm, to).split('\\').join('');
 
-            sboModule.drawService.draw(domList, url, index, extractFlavors(o.responseText));
+            sboModule.drawService.draw(domList, url, index, extractFlavors(o.responseText), course);
         });
     };
 
@@ -37,7 +37,7 @@ sboModule.crawlerService = function () {
     };
 
     return {
-        crawl: function (domList, html) {
+        crawl: function (domList, html, course) {
 
             let isNew = !!html;
             html = isNew ? '<div>' + html + '</div>' : window.document;
@@ -62,7 +62,7 @@ sboModule.crawlerService = function () {
                 apiParams.refList.push(attr.replace('/', '-'));
             });
 
-            getVideoForRefList(apiParams, domList);
+            getVideoForRefList(apiParams, domList, course);
         }
     }
 }();

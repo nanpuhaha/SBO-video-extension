@@ -1,3 +1,39 @@
+## TODO
+
+- Change Title Format for each video
+
+  > 001 - Preprocessing Data Using Different Techniques6m 39s.mp4  `--> Before`
+  >
+  > 001 - Preprocessing Data Using Different Techniques - 6m 39s.mp4 `--> After`
+
+- Download Thumbnail Image for each course
+
+- Download all information into course_info.json for each course
+
+- Add 'Download All' Button for each course
+
+- Support to download unsupported course
+
+- Support to download Learning Path
+
+- Download source codes from github or other links describes on Description ('About this video' or 'In Detail')
+
+- Selenium automation
+
+- Move out from Chrome Extension, stand-alone code (Selenium Chrome)
+
+- Automatically downloads all Recently Added videos using Headless Chrome
+
+- Make lecture slide from each video; take screenshot every seconds and remove duplicates or similars using machine learning
+
+## ChangeLog
+
+- Change download path for each course
+> `$DEFAULT_DOWNLOAD_PATH/SafariBooksOnline/[2016.11] Python Machine Learning Solutions (9781787127692)/001 - Preprocessing Data Using Different Techniques6m 39s.mp4`
+- Overwrite codes with version 2.6 (updated 2018-07-11) from Chrome Web Store
+
+---
+
 # Welcome to Safari (SBO) Chrome Video Extension
 
 Where SBO refers to Safari Books Online (copy rights reserved)

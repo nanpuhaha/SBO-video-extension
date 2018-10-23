@@ -1,5 +1,7 @@
 ## TODO
 
+- Logging unsupported course URL
+
 - Change Title Format for each video
 
   > 001 - Preprocessing Data Using Different Techniques6m 39s.mp4  `--> Before`

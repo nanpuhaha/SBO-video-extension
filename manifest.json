@@ -1,25 +1,17 @@
 {
-    "name": "Safari Books Online Video Downloader",
-    "description": "If you have Safari Books online(R) subscription, use this extension to save videos to your disk to watch later offline.",
-    "version": "1.8",
-    "permissions": [
-        "cookies",
-		"downloads",
-        "*://*.safaribooksonline.com/"
-    ],
-    "content_scripts": [{
-        "matches": ["*://*.safaribooksonline.com/*"],
-        "js": ["lib/jquery.min.js", "core/util.js", "core/shared.js", "core/techbus.js", "core/new.js", "main.js"],
-        "run_at": "document_idle"
-    }],
-    "manifest_version": 2,
-    "icons": {
-        "16": "icon/16.png",
-        "48": "icon/48.png",
-        "128": "icon/128.png"
-    },
-    "background": {
- 	    "scripts": ["core/background.js"]
- 	},
-    "web_accessible_resources": ["icon/48.png"]
+   "background": {
+      "scripts": [ "core/background.js" ]
+   },
+   "content_scripts": [ {
+      "js": [ "lib/jquery.min.js", "lib/fontawesome.js", "core/crawlerService.js", "core/drawService.js", "main.js" ],
+      "matches": [ "*://*.safaribooksonline.com/*" ],
+      "run_at": "document_idle"
+   } ],
+   "description": "If you have Safari Books online(R) subscription, use this extension to save videos to your disk to watch later offline.",
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmI3Q3Uzts9tAb3KHQGuBCDc3hMdcGFEhztz7K0GDdrzwJyMfjkZbQRg4ZmRKhmVwDcPEQBSOIhyaoBFBhVkqF6WCG/ilx0eHv1AGaU8y2zX9hcWw+W/iDJhKKQzTE8fTWiLyz1yvKhdD6ENk+Nj+/KMnY14guCbeNEOkkINTvHW5NZjcdZkI9XFnUd47/0lH9N4187KIA9WdfKhJHyNFKfBXJU397r4mZmfPB92qNHrtCWmXzkMvQfK89hS5q/K93XzFLFrXxN7D1YFhDOWnI2Fyj8I0o6a+LeD0Mr4Du6fFTgIC5tbqZR38zj5GiEsIIRifhSO5g7CfLxqO1/a6uQIDAQAB",
+   "manifest_version": 2,
+   "name": "Safari Books Online Video Downloader",
+   "permissions": [ "cookies", "downloads", "*://*.safaribooksonline.com/" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "2.6"
 }
